@@ -13,8 +13,6 @@ function App() {
   const [inputs, setInputs] = useState({ title: "", file: "", path: null })
   const [count, setCount] = useState('');
 
-  console.log('count', count);
-
   useEffect(() => {
     setItems(photos);
     // eslint-disable-next-line react-hooks/exhaustive-deps
