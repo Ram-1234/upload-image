@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useState, useReducer } from "react";
+import React, { lazy, Suspense, useEffect, useReducer, useMemo } from "react";
 import Layout from "./components/layout";
 import './App.css';
 import photos from "./components/data";
@@ -8,7 +8,6 @@ const Card = lazy(() => import('./components/card/card'));
 
 
 function App() {
-  const [count, setCount] = useState('');
   const [state, dispacth]=useReducer(reducer, initialState);
 
   const toggle = (bool) => {
@@ -20,10 +19,9 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [photos])
 
-  useEffect(() => {
-    setCount(`You have ${count} Image` + state?.items.length > 1 ? 's' : '')
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state?.items])
+  let count = useMemo(()=>{
+    return (`You have ${state?.items.length  + 1} Image${state?.items.length > 1 ? 's' : ''}` )
+  },[state.items])
 
   /* debouncing logic */
   const handleOnChange = (fun, timeout = 500) => {

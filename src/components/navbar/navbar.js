@@ -1,4 +1,5 @@
 import React from 'react';
+import Login from '../user/login';
 
 const Search = () => {
     return (
@@ -32,6 +33,7 @@ const Navbar = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <Navigation />
+                    <Login/>
                     <Search />
                 </div>
             </nav>

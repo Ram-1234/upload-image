@@ -3,7 +3,6 @@ import Navbar from "../navbar/navbar";
 import UploadFile from "../fileupload";
 
 const Layout =({children, state, onChange,onSubmit, saveInput, toggle})=>{
-    console.log('state', state);
     return(
         <React.Fragment>
             <Navbar />
