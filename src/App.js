@@ -28,7 +28,7 @@ function App() {
     let timer = null;
     return (...args) => {
       clearTimeout(timer)
-      timer = setTimeout(() => { fun.apply(this, args) }, timeout)
+      timer = setTimeout(() => { fun(...args) }, timeout)
     }
   }
 
