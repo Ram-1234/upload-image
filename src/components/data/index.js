@@ -18,3 +18,22 @@ const photos = [
 ]
 
 export default photos;
+
+export let initialState={
+    items:[],
+    isCollaps:false,
+    inputs:{ title: "", file: "", path: '' },
+  }
+  
+  export const reducer=(state, action)=>{
+   switch(action.type){
+    case "SET_ITEM":
+      return {...state, items:action.payload}
+    case "SET_INPUT":
+      return {...state, inputs:action.payload}
+    case "IS_COLLAPS":
+      return {...state, isCollaps:action.payload}    
+    default:
+      return state  
+   }
+  }

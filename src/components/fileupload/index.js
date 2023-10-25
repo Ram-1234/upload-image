@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 
-
 const Preview = ({ path }) => {
     return (
         <div
@@ -17,7 +16,7 @@ const Preview = ({ path }) => {
 }
 
 const UploadFile = (props) => {
-    const { handleOnChange, saveInput, handleSubmit, title, inputs } = props;
+    const { handleOnChange, handleOnSubmit, saveInput, inputs } = props;
 
     /* usememo handling unneccessory rerendering */
     const isDisabled = useMemo(() => {
@@ -29,9 +28,9 @@ const UploadFile = (props) => {
             <p className='display-6 text-center mb-3'>Upload Stock Image</p>
             <div className='mb-5 d-flex align-items-center justify-content-center'>
                 {!isDisabled && <Preview {...inputs} />}
-                <form onSubmit={handleSubmit.bind(this)} className="mb-2" style={{ textAlign: "left" }}>
+                <form onSubmit={handleOnSubmit.bind(this)} className="mb-2" style={{ textAlign: "left" }}>
                     <div className="mb-3">
-                        <input onChange={handleOnChange(saveInput)} type="text" className="form-control" name="title" placeholder={title} aria-describedby='text' id="formFile" />
+                        <input onChange={handleOnChange(saveInput)} type="text" className="form-control" name="title" placeholder={'Title'} aria-describedby='text' id="formFile" />
                     </div>
                     <div className="mb-3">
                         <input onChange={handleOnChange(saveInput)} className="form-control" name='file' type="file" id="file" />
